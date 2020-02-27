@@ -1,0 +1,9 @@
+node_modules
+set_env.sh
+claudia.json
+
+env-*.json
+*.jpg
+*.jpeg
+*.webp
+*.zip

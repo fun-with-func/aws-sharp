@@ -1,0 +1,7 @@
+node_modules
+package*.json
+env-*.json
+set_env.sh
+claudia.json
+*.zip
+README.md

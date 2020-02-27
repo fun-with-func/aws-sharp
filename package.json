@@ -1,0 +1,31 @@
+{
+    "name": "image-processor",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "precreate": "eslint .",
+        "create": ". ./set_env.sh && claudia create --profile $PROFILE_NAME --region $LAMBDA_REGION --handler index.handler --version $STAGE --role $ROLE --post-package-script rmDependencies --aws-retries 1 --set-env-from-json \"env-$STAGE.json\"",
+        "update": ". ./set_env.sh && claudia update --profile $PROFILE_NAME --region $LAMBDA_REGION --handler index.handler --version $STAGE --post-package-script rmDependencies --aws-retries 1 --memory 256 --timeout 10 --set-env-from-json \"env-$STAGE.json\" --layers arn:aws:lambda:us-east-1:368603562134:layer:nodejs-image-processor:1",
+        "destroy": ". ./set_env.sh && claudia destroy --profile $PROFILE_NAME",
+        "prelayer": "rm -rdf nodejs && rm -rdf \"$LAMBDA_LAYER_NAME\".zip && mkdir -p nodejs && cp package-lock.json package.json nodejs && cd nodejs && npm i --production",
+        "layer": "zip -r \"$LAMBDA_LAYER_NAME\".zip nodejs",
+        "postlayer": "rm -rdf nodejs",
+        "publish:layer": "aws lambda --profile $PROFILE_NAME publish-layer-version --layer-name $LAMBDA_LAYER_NAME --compatible-runtimes nodejs --content \"S3Bucket=$LAMBDA_LAYER_BUCKET,S3Key=$LAMBDA_LAYER_NAME\".zip",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "rmDependencies": "rm -rdf node_modules package.json"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "aws-sdk": "^2.610.0",
+        "sharp": "^0.24.0"
+    },
+    "devDependencies": {
+        "@types/aws-sdk": "^2.7.0",
+        "@types/sharp": "^0.24.0",
+        "claudia": "^5.12.0",
+        "eslint": "^6.8.0"
+    }
+}
