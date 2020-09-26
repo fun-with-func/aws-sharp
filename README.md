@@ -1,1 +1,3 @@
-https://medium.com/@anjanava.biswas/nodejs-runtime-environment-with-aws-lambda-layers-f3914613e20e
+## aws-sharp
+
+Inspired by from [this sample](https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example-deployment-pkg.html)

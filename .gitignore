@@ -1,8 +1,8 @@
 node_modules
-set_env.sh
+dist
 claudia.json
-
 env-*.json
+*.png
 *.jpg
 *.jpeg
 *.webp
