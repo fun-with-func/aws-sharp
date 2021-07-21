@@ -10,7 +10,7 @@ claudia_options() {
   --source dist \
   --handler index.handler \
   --description "Lambda to process images for every created image on specified S3 bucket" \
-  --runtime nodejs12.x \
+  --runtime nodejs14.x \
   --memory $MEMORY \
   --timeout $TIMEOUT \
   --no-optional-dependencies \
@@ -24,7 +24,7 @@ cmd_create() {
 }
 
 cmd_update() {
-  echo "updating lambda"
+  echo "::updating lambda::"
   npx claudia update $(claudia_options)
 }
 
@@ -71,19 +71,29 @@ function cmd_publish_layer() {
   publish-layer-version \
   --license-info MIT \
   --layer-name $LAMBDA_LAYER_NAME \
-  --compatible-runtimes nodejs12.x \
+  --compatible-runtimes nodejs14.x \
   --zip-file fileb://$LAMBDA_LAYER_NAME.zip \
   && \
   rm -rdf nodejs "$LAMBDA_LAYER_NAME".zip
 }
 
-FUNCTION_NAME="befaas_aws-sharp"
-REGION=us-east-1
+# GENERAL
 PROFILE_NAME=claudia
-MEMORY=2048
-TIMEOUT=2
+
+# LAMBDA
+FUNCTION_NAME="aws-sharp"
+# ROLE=
+# STAGE=
+REGION=us-east-1
+MEMORY=512
+TIMEOUT=5
+# LAMBDA_LAYERS=
+
+# S3
+# BUCKET=
+
+# LAMBDA LAYER
 LAMBDA_LAYER_NAME=aws-sharp
-LAMBDA_LAYERS=arn:aws:lambda:us-east-1:368603562134:layer:aws-sharp:1
 
 while [ "$1" ]
 do

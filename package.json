@@ -1,12 +1,13 @@
 {
   "private": true,
   "name": "aws-sharp",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.0.2",
+  "description": "Lambda to process images for every created image on specified S3 bucket",
   "main": "src/index.ts",
   "scripts": {
     "minify": "terser --compress --mangle --output dist/index.js -- dist/index.js",
     "build": "tsc && npm run minify && cp package*.json dist",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "prelambda:create": "eslint src/",
     "lambda:create": "npm run build && ./script.sh create",
     "prelambda:update": "eslint src/",
@@ -15,18 +16,18 @@
     "s3:event": "./script.sh s3_event",
     "layer:create": "./script.sh build_layer",
     "layer:publish": "./script.sh publish_layer",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "rmDependencies": "rm -rdf node_modules *.json"
   },
   "keywords": [],
   "author": "Daniel Alvarez Vera <akaisuicchi@gmail.com> @akaisuicchi",
   "license": "ISC",
   "dependencies": {
-    "sharp": "^0.26.1",
+    "sharp": "^0.28.3",
     "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@types/sharp": "^0.26.0",
+    "@types/aws-lambda": "^8.10.79",
+    "@types/sharp": "^0.28.4",
     "@typescript-eslint/eslint-plugin": "^4.2.0",
     "@typescript-eslint/parser": "^4.2.0",
     "claudia": "^5.12.0",
