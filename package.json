@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "aws-sharp",
-  "version": "0.0.2",
+  "version": "0.2.0",
   "description": "Lambda to process images for every created image on specified S3 bucket",
   "main": "src/index.ts",
   "scripts": {
@@ -22,20 +22,20 @@
   "author": "Daniel Alvarez Vera <akaisuicchi@gmail.com> @akaisuicchi",
   "license": "ISC",
   "dependencies": {
-    "sharp": "^0.28.3",
-    "tslib": "^2.0.1"
+    "sharp": "^0.29.3",
+    "tslib": "^2.3.1"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.79",
-    "@types/sharp": "^0.28.4",
-    "@typescript-eslint/eslint-plugin": "^4.2.0",
-    "@typescript-eslint/parser": "^4.2.0",
-    "claudia": "^5.12.0",
-    "eslint": "^7.9.0",
-    "terser": "^5.3.2",
-    "typescript": "^4.0.3"
+    "@types/aws-lambda": "^8.10.87",
+    "@types/sharp": "^0.29.4",
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "@typescript-eslint/parser": "^5.6.0",
+    "claudia": "^5.14.0",
+    "eslint": "^8.4.1",
+    "terser": "^5.10.0",
+    "typescript": "^4.5.3"
   },
   "optionalDependencies": {
-    "aws-sdk": "^2.685.0"
+    "aws-sdk": "^2.1046.0"
   }
 }

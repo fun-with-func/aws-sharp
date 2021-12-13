@@ -1,9 +1,18 @@
+# Directories
 node_modules
 dist
+
+# ClaudiaJS configuration
 claudia.json
 env-*.json
+
+# Generated files
 *.png
 *.jpg
 *.jpeg
 *.webp
 *.zip
+
+# Markdown
+*.md
+!README.md

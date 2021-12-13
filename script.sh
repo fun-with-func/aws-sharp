@@ -83,7 +83,7 @@ PROFILE_NAME=claudia
 # LAMBDA
 FUNCTION_NAME="aws-sharp"
 # ROLE=
-# STAGE=
+STAGE=development
 REGION=us-east-1
 MEMORY=512
 TIMEOUT=5
